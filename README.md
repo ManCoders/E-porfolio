@@ -1,2 +1,2 @@
 # E-porfolio
-This is  for school requirments
+This project/presentation is submitted for educational purposes only,
