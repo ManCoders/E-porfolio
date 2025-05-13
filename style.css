@@ -134,7 +134,8 @@ section {
 
 /* Hero Section */
 #hero {
-  margin-top: 10rem;
+
+  top: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
