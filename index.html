@@ -308,6 +308,40 @@
     </div>
   </section>
   <!-- End Footer -->
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll('.nav-list ul li a');
+    const sections = document.querySelectorAll('section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+
+        sections.forEach(section => {
+          if (section.id === targetId) {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+
+        // Update active class
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+
+        // Scroll to the target section
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Initially display the hero section
+    sections.forEach(section => {
+      section.style.display = (section.id === 'hero') ? 'block' : 'none';
+    });
+  });
+</script>
+
   <script src="./app.js"></script>
 </body>
 
