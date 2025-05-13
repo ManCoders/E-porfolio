@@ -233,26 +233,28 @@
 
 
 
-  <!-- About Section -->
-  <section id="about" style="display: none;">
-    <div class="about container">
-      <div class="col-left">
-        <div class="about-img">
-          <img src="./img/profile2.png" alt="img">
-        </div>
-      </div>
-      <div class="col-right">
-        <h1 class="section-title">About <span>me</span></h1>
-        <h2>Software Engineer and Network Field Engineer</h2>
-        <p> About Me <br>
-          I am a software engineer with a passion for creating innovative solutions to complex problems. With a strong
-          background in web development, mobile app development, and IoT, I have the skills and experience to bring your
-          ideas to life. I am dedicated to delivering high-quality work that meets your specific needs and goals. Let's
-          work together to create something amazing!
+<!-- Fix begins inside #about section -->
+<section id="about" style="display: none;">
+  <div class="about container">
+    <div class="col-left">
+      <div class="about-img">
+        <img src="./img/profile2.png" alt="img">
       </div>
     </div>
-  </section>
-  <!-- End About Section -->
+    <div class="col-right">
+      <h1 class="section-title">About <span>me</span></h1>
+      <h2>Software Engineer and Network Field Engineer</h2>
+      <p>
+        About Me <br>
+        I am a software engineer with a passion for creating innovative solutions to complex problems. With a strong
+        background in web development, mobile app development, and IoT, I have the skills and experience to bring your
+        ideas to life. I am dedicated to delivering high-quality work that meets your specific needs and goals. Let's
+        work together to create something amazing!
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
 
   <!-- Contact Section -->
   <section id="contact" style="display: none;">
@@ -308,41 +310,66 @@
     </div>
   </section>
   <!-- End Footer -->
-   <script>
+
+  <script>
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-list ul li a');
+
+    let current = '';
+
+    sections.forEach(section => {
+      const top = window.scrollY;
+      const offset = section.offsetTop - 150;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (top >= offset && top < offset + height) {
+        current = id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll('.nav-list ul li a');
     const sections = document.querySelectorAll('section');
+
+    // Initialize only hero visible
+    sections.forEach(section => {
+      section.style.display = (section.id === 'hero') ? 'block' : 'none';
+    });
 
     navLinks.forEach(link => {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
 
+        // Display the target section, hide others
         sections.forEach(section => {
-          if (section.id === targetId) {
-            section.style.display = 'block';
-          } else {
-            section.style.display = 'none';
-          }
+          section.style.display = (section.id === targetId) ? 'block' : 'none';
         });
 
-        // Update active class
+        // Update active nav link
         navLinks.forEach(nav => nav.classList.remove('active'));
         this.classList.add('active');
 
-        // Scroll to the target section
+        // Smooth scroll to the selected section
         document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
       });
     });
-
-    // Initially display the hero section
-    sections.forEach(section => {
-      section.style.display = (section.id === 'hero') ? 'block' : 'none';
-    });
   });
 </script>
-
-  <script src="./app.js"></script>
+<!-- 
+  <script src="./app.js"></script> -->
 </body>
 
 </html>
