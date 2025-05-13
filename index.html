@@ -47,40 +47,41 @@
             <li><a href="#contact" data-after="Contact">Contact</a></li>
           </ul>
         </div>
-       
-  <script>
-  window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-list ul li a');
+        <script>
+          window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-list ul li a');
 
-    let current = '';
+            let current = '';
 
-    sections.forEach(section => {
-      const top = window.scrollY;
-      const offset = section.offsetTop - 150;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
+            sections.forEach(section => {
+              const top = window.scrollY;
+              const offset = section.offsetTop - 150;
+              const height = section.offsetHeight;
+              const id = section.getAttribute('id');
 
-      if (top >= offset && top < offset + height) {
-        current = id;
-      }
-    });
+              if (top >= offset && top < offset + height) {
+                current = id;
+              }
+            });
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-  });
-</script>
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+                document.querySelector(`#${current}`).style.display='block';
+              }
+            });
+          });
+
+        </script>
       </div>
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-  <section id="hero">
-    <!-- <div class="hero container"> -->
+  <section id="hero" >
+    <div class="hero container">
       <div class="fire">
         <div class="flame"></div>
         <div class="flame"></div>
@@ -90,7 +91,7 @@
         <h1>Hello, I'm</h1>
         <h1><span class="typing-animation"></span></h1>
       </div>
-    <!-- </div> -->
+    </div>
   </section>
 
   <script>
@@ -313,31 +314,33 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-  const navLinks = document.querySelectorAll('.nav-list ul li a');
-  const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-list ul li a');
+    const sections = document.querySelectorAll('section');
 
-  sections.forEach(section => {
-    section.style.display = (section.id === 'hero' || section.id === 'header') ? 'block' : 'none';
-  });
+    // Initialize only hero visible
+    sections.forEach(section => {
+      section.style.display = (section.id === 'hero') ? 'block' : 'none';
+    });
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
 
-      // Show target section, hide others except header
-      sections.forEach(section => {
-        section.style.display = (section.id === 'header' || section.id === targetId) ? 'block' : 'none';
+        // Display the target section, hide others
+        sections.forEach(section => {
+          section.style.display = (section.id === targetId) ? 'block' : 'none';
+        });
+
+        // Update active nav link
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+
+        // Smooth scroll to the selected section
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
       });
-
-      navLinks.forEach(nav => nav.classList.remove('active'));
-      this.classList.add('active');
-
-      document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
     });
   });
-});
-
 </script>
 <!-- 
   <script src="./app.js"></script> -->
