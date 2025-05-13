@@ -64,9 +64,7 @@ section {
 /* Header */
 #header {
   background-color: #111;
-  padding: 1rem 0;
   width: 100%;
-  margin: 2rem 0;
   z-index: 1000;
 }
 
@@ -76,7 +74,6 @@ section {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 #header .brand a {
