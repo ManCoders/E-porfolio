@@ -313,33 +313,31 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll('.nav-list ul li a');
-    const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-list ul li a');
+  const sections = document.querySelectorAll('section');
 
-    // Initialize only hero visible
-    sections.forEach(section => {
-      section.style.display = (section.id === 'hero') ? 'block' : 'none';
-    });
+  sections.forEach(section => {
+    section.style.display = (section.id === 'hero' || section.id === 'header') ? 'block' : 'none';
+  });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
 
-        // Display the target section, hide others
-        sections.forEach(section => {
-          section.style.display = (section.id === targetId) ? 'block' : 'none';
-        });
-
-        // Update active nav link
-        navLinks.forEach(nav => nav.classList.remove('active'));
-        this.classList.add('active');
-
-        // Smooth scroll to the selected section
-        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      // Show target section, hide others except header
+      sections.forEach(section => {
+        section.style.display = (section.id === 'header' || section.id === targetId) ? 'block' : 'none';
       });
+
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      this.classList.add('active');
+
+      document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
     });
   });
+});
+
 </script>
 <!-- 
   <script src="./app.js"></script> -->
