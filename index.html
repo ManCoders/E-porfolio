@@ -325,81 +325,41 @@
     <div class="contact container">
 
       <div class="contact-items">
-        <style>
-          canvas {
-
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            background-color: #0e0d0d;
-
-
-          }
-
-          #text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Pacifico', cursive;
-            font-size: 2.5rem;
-            color: white;
-            text-shadow: 0 0 10px white;
-          }
-
-          .back-arrow {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50px;
-            height: 50px;
-            background-color: #ff4c4c;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-
-          .back-arrow:hover {
-            background-color: #ff6a00;
-          }
-
-          .back-arrow::before {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-top: 3px solid #fff;
-            border-right: 3px solid #fff;
-            transform: rotate(-45deg);
-            top: 20px;
-            left: 15px;
-          }
-        </style>
+        
         <div id="text" class="float-middle m-5 p-5">I'm Sorry!</div>
         <div class="back-arrow" onclick="window.location.href = 'index.html'"></div>
-        <canvas class="section-title" id="canvas"></canvas>
+        <canvas class="section-title" id="canvas">
+
+        </canvas>
       </div>
     </div>
   </section>
-<script>
-const canvas = document.getElementById("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const gl = canvas.getContext("webgl");
+  
+  <script>
+  const messages = ["I'm Sorry!", "I Miss You!", "Please Forgive Me!"];
+  let index = 0;
+  const textElement = document.getElementById("text");
 
-const vertexShaderSource = `
+  setInterval(() => {
+    textElement.textContent = messages[index];
+    index = (index + 1) % messages.length;
+  }, 4000);
+</script>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const gl = canvas.getContext("webgl");
+
+    const vertexShaderSource = `
 attribute vec2 a_position;
 void main() {
   gl_Position = vec4(a_position, 0.0, 1.0);
 }
 `;
 
-const fragmentShaderSource = `
+    const fragmentShaderSource = `
 precision mediump float;
 uniform float u_time;
 uniform vec2 u_resolution;
@@ -430,61 +390,61 @@ void main() {
 
 `;
 
-function createShader(gl, type, source) {
-  const shader = gl.createShader(type);
-  gl.shaderSource(shader, source);
-  gl.compileShader(shader);
-  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-    console.error(gl.getShaderInfoLog(shader));
-    gl.deleteShader(shader);
-    return null;
-  }
-  return shader;
-}
+    function createShader(gl, type, source) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    }
 
-function createProgram(gl, vShader, fShader) {
-  const program = gl.createProgram();
-  gl.attachShader(program, vShader);
-  gl.attachShader(program, fShader);
-  gl.linkProgram(program);
-  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    console.error(gl.getProgramInfoLog(program));
-    gl.deleteProgram(program);
-    return null;
-  }
-  return program;
-}
+    function createProgram(gl, vShader, fShader) {
+      const program = gl.createProgram();
+      gl.attachShader(program, vShader);
+      gl.attachShader(program, fShader);
+      gl.linkProgram(program);
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        console.error(gl.getProgramInfoLog(program));
+        gl.deleteProgram(program);
+        return null;
+      }
+      return program;
+    }
 
-const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-const program = createProgram(gl, vertexShader, fragmentShader);
+    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+    const program = createProgram(gl, vertexShader, fragmentShader);
 
-const positionLocation = gl.getAttribLocation(program, "a_position");
-const buffer = gl.createBuffer();
-gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-  -1, -1, 1, -1, -1, 1,
-  -1, 1, 1, -1, 1, 1,
-]), gl.STATIC_DRAW);
+    const positionLocation = gl.getAttribLocation(program, "a_position");
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+      -1, -1, 1, -1, -1, 1,
+      -1, 1, 1, -1, 1, 1,
+    ]), gl.STATIC_DRAW);
 
-gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-gl.useProgram(program);
-gl.enableVertexAttribArray(positionLocation);
-gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+    gl.useProgram(program);
+    gl.enableVertexAttribArray(positionLocation);
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
-const timeLocation = gl.getUniformLocation(program, "u_time");
-const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
+    const timeLocation = gl.getUniformLocation(program, "u_time");
+    const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
 
-function render(time) {
-  gl.uniform1f(timeLocation, time * 0.001);
-  gl.uniform2f(resolutionLocation, gl.drawingBufferWidth, gl.drawingBufferHeight);
-  gl.drawArrays(gl.TRIANGLES, 0, 6);
-  requestAnimationFrame(render);
-}
+    function render(time) {
+      gl.uniform1f(timeLocation, time * 0.001);
+      gl.uniform2f(resolutionLocation, gl.drawingBufferWidth, gl.drawingBufferHeight);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+      requestAnimationFrame(render);
+    }
 
-requestAnimationFrame(render);
-</script>
+    requestAnimationFrame(render);
+  </script>
 
 
   <!-- Footer -->

@@ -7,7 +7,7 @@
 }
 
 body {
-  
+
   font-family: 'Montserrat', sans-serif;
   background-color: #0e0d0d;
   color: #fff;
@@ -368,4 +368,41 @@ footer p {
     flex-direction: column;
     align-items: center;
   }
+}
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px white, 0 0 20px #ff8af5, 0 0 30px #ff8af5;
+  }
+  50% {
+    text-shadow: 0 0 15px white, 0 0 25px #ff42f1, 0 0 35px #ff42f1;
+  }
+  100% {
+    text-shadow: 0 0 10px white, 0 0 20px #ff8af5, 0 0 30px #ff8af5;
+  }
+}
+
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 0 0 10px white;
+  animation: fadeInUp 1.5s ease-out, glowPulse 2s infinite;
 }
