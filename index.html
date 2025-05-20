@@ -349,10 +349,40 @@
             color: white;
             text-shadow: 0 0 10px white;
           }
+
+          .back-arrow {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: #ff4c4c;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .back-arrow:hover {
+            background-color: #ff6a00;
+          }
+
+          .back-arrow::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-top: 3px solid #fff;
+            border-right: 3px solid #fff;
+            transform: rotate(-45deg);
+            top: 20px;
+            left: 15px;
+          }
         </style>
         <div id="text" class="float-middle m-5 p-5">I'm Sorry!</div>
+        <div class="back-arrow" onclick="window.location.href = 'index.html'"></div>
         <canvas class="section-title" id="canvas"></canvas>
-
       </div>
     </div>
   </section>
