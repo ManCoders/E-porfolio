@@ -11,7 +11,6 @@ body {
   background-color: #000000;
   color: #fff;
 }
-
 a {
   text-decoration: none;
   color: inherit;
@@ -406,7 +405,7 @@ canvas{
 }
 
 
-#text {
+#text, #text2 {
   position: absolute;
   top: 70%;
   left: 50%;
@@ -416,4 +415,9 @@ canvas{
   color: white;
   text-shadow: 0 0 10px white;
   animation: fadeInUp 1.5s ease-out, glowPulse 2s infinite;
+}
+
+#text2 {
+  top: 92%;
+  
 }
