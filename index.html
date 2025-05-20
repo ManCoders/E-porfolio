@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <title>My portfolio</title>
 </head>
 
 
 <body>
-
-  <!-- Header -->
   <section id="header">
     <div class="container">
       <div class="nav-bar">
@@ -81,8 +81,6 @@
       </div>
     </div>
   </section>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
   <section id="hero" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
     <div class="hero container">
       <div class="fire">
@@ -95,20 +93,8 @@
         <h1><span class="typing-animation"></span></h1>
       </div>
     </div>
-    
+
   </section>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var typed = new Typed(".typing-animation", {
-        strings: ["Manuel Daligdig", "Web Developer", "Freelancer", "Software Engineer", "Network Field Engineer", "IT Technician"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-      });
-    });
-  </script>
-
   <section id="services" style="display: none;" class="">
     <div class="services container">
       <div class="service-top">
@@ -160,9 +146,6 @@
         <i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </section>
-  <!-- End Service Section -->
-
-  <!-- Projects Section -->
   <section id="projects" style="display: none;">
     <div class="projects container">
       <div class="projects-header">
@@ -245,9 +228,6 @@
         <i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </section>
-  <!-- End Projects Section -->
-
-  <!-- Achievements Section -->
   <section id="goal" style="display: none;">
     <div class="goal container">
       <div class="goal-header">
@@ -273,11 +253,6 @@
         <i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </section>
-  <!-- End Achievements Section -->
-
-
-
-  <!-- Fix begins inside #about section -->
   <section id="about" style="display: none;">
     <div class="about container">
       <div class="col-left">
@@ -301,9 +276,6 @@
         <i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </section>
-  <!-- End About Section -->
-
-  <!-- Contact Section -->
   <section id="contact" style="display: none;">
     <div class="contact container">
       <div>
@@ -339,14 +311,12 @@
         <i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </section>
-  <!-- End Contact Section -->
-
   <section id="mut" style="display: none;">
     <div class="container">
       <div class="contact-items">
         <div id="text" class="float-middle m-5 p-5"></div>
         <canvas id="canvas" style="background-color: lightgray;"></canvas>
-        
+
       </div>
       <div id="text2" class="float-right">-Manuel</div>
     </div>
@@ -355,120 +325,6 @@
         <i class="fa-solid fa-arrow-up"></i></a>
     </div>
   </section>
-  
-  <script>
-  const messages = ["I'm Sorry!", "I Miss You!", "Please Forgive Me!", "I Love You!"];
-  let index = 0;
-  const textElement = document.getElementById("text");
-
-  setInterval(() => {
-    textElement.textContent = messages[index];
-    index = (index + 1) % messages.length;
-  }, 4000);
-</script>
-
-  <script>
-    const canvas = document.getElementById("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const gl = canvas.getContext("webgl");
-
-    const vertexShaderSource = `
-attribute vec2 a_position;
-void main() {
-  gl_Position = vec4(a_position, 0.0, 1.0);
-}
-`;
-
-    const fragmentShaderSource = `
-precision mediump float;
-uniform float u_time;
-uniform vec2 u_resolution;
-
-float heartShape(vec2 uv) {
-  uv *= 1.5;
-  uv.y += 0.3;
-
-  float x = uv.x;
-  float y = uv.y;
-
-  float a = x*x + y*y - 1.0;
-  return a*a*a - x*x*y*y*y;
-}
-
-void main() {
-  vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-  vec2 p = uv * 2.0 - 1.0;
-  p.x *= u_resolution.x / u_resolution.y;
-
-  float d = heartShape(p);
-
-  float glow = 0.003 / abs(d);
-  vec3 color = vec3(1.0, 0.2 + 0.5*sin(u_time), 0.8) * glow;
-
-  gl_FragColor = vec4(color, 1.0);
-}
-
-`;
-
-    function createShader(gl, type, source) {
-      const shader = gl.createShader(type);
-      gl.shaderSource(shader, source);
-      gl.compileShader(shader);
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error(gl.getShaderInfoLog(shader));
-        gl.deleteShader(shader);
-        return null;
-      }
-      return shader;
-    }
-
-    function createProgram(gl, vShader, fShader) {
-      const program = gl.createProgram();
-      gl.attachShader(program, vShader);
-      gl.attachShader(program, fShader);
-      gl.linkProgram(program);
-      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.error(gl.getProgramInfoLog(program));
-        gl.deleteProgram(program);
-        return null;
-      }
-      return program;
-    }
-
-    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-    const program = createProgram(gl, vertexShader, fragmentShader);
-
-    const positionLocation = gl.getAttribLocation(program, "a_position");
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-      -1, -1, 1, -1, -1, 1,
-      -1, 1, 1, -1, 1, 1,
-    ]), gl.STATIC_DRAW);
-
-    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-    gl.useProgram(program);
-    gl.enableVertexAttribArray(positionLocation);
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
-
-    const timeLocation = gl.getUniformLocation(program, "u_time");
-    const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
-
-    function render(time) {
-      gl.uniform1f(timeLocation, time * 0.001);
-      gl.uniform2f(resolutionLocation, gl.drawingBufferWidth, gl.drawingBufferHeight);
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
-      requestAnimationFrame(render);
-    }
-
-    requestAnimationFrame(render);
-  </script>
-
-
-  <!-- Footer -->
   <section id="footer" style="display: none;">
     <div class="footer container">
       <div class="brand">
@@ -487,39 +343,138 @@ void main() {
       <p>Copyright © 2025. All rights reserved</p>
     </div>
   </section>
-  <!-- End Footer -->
-
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const navLinks = document.querySelectorAll('.nav-list ul li a');
-      const sections = document.querySelectorAll('section');
-
-      sections.forEach(section => {
-        section.style.display = (section.id === 'hero' || section.id === 'header') ? 'block' : 'none';
-      });
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href').substring(1);
-
-          // Show target section, hide others except header
-          sections.forEach(section => {
-            section.style.display = (section.id === 'header' || section.id === targetId) ? 'block' : 'none';
-          });
-
-          navLinks.forEach(nav => nav.classList.remove('active'));
-          this.classList.add('active');
-
-          document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-        });
-      });
-    });
-
-  </script>
-  <!-- 
-  <script src="./app.js"></script> -->
 </body>
 
+
+<script>
+  const messages = ["I'm Sorry!", "I Miss You!", "Please Forgive Me!", "I Love You!"];
+  let index = 0;
+  const textElement = document.getElementById("text");
+
+  setInterval(() => {
+    textElement.textContent = messages[index];
+    index = (index + 1) % messages.length;
+  }, 4000);
+
+  const canvas = document.getElementById("canvas");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const gl = canvas.getContext("webgl");
+
+  const vertexShaderSource = `
+    attribute vec2 a_position;
+    void main() {
+      gl_Position = vec4(a_position, 0.0, 1.0);
+    }
+  `;
+
+  const fragmentShaderSource = `
+    precision mediump float;
+    uniform float u_time;
+    uniform vec2 u_resolution;
+    float heartShape(vec2 uv) {
+      uv *= 1.5;
+      uv.y += 0.3;
+      float x = uv.x;
+      float y = uv.y;
+      float a = x*x + y*y - 1.0;
+      return a*a*a - x*x*y*y*y;
+    }
+    void main() {
+      vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+      vec2 p = uv * 2.0 - 1.0;
+      p.x *= u_resolution.x / u_resolution.y;
+      float d = heartShape(p);
+      float glow = 0.003 / abs(d);
+      vec3 color = vec3(1.0, 0.2 + 0.5*sin(u_time), 0.8) * glow;
+      gl_FragColor = vec4(color, 1.0);
+    }
+  `;
+
+  function createShader(gl, type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      console.error(gl.getShaderInfoLog(shader));
+      gl.deleteShader(shader);
+      return null;
+    }
+    return shader;
+  }
+
+  function createProgram(gl, vShader, fShader) {
+    const program = gl.createProgram();
+    gl.attachShader(program, vShader);
+    gl.attachShader(program, fShader);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.error(gl.getProgramInfoLog(program));
+      gl.deleteProgram(program);
+      return null;
+    }
+    return program;
+  }
+
+  const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+  const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+  const program = createProgram(gl, vertexShader, fragmentShader);
+
+  const positionLocation = gl.getAttribLocation(program, "a_position");
+  const buffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+    -1, -1, 1, -1, -1, 1,
+    -1, 1, 1, -1, 1, 1,
+  ]), gl.STATIC_DRAW);
+
+  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  gl.useProgram(program);
+  gl.enableVertexAttribArray(positionLocation);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+  gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+  const timeLocation = gl.getUniformLocation(program, "u_time");
+  const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
+
+  function render(time) {
+    gl.uniform1f(timeLocation, time * 0.001);
+    gl.uniform2f(resolutionLocation, gl.drawingBufferWidth, gl.drawingBufferHeight);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll('.nav-list ul li a');
+    const sections = document.querySelectorAll('section');
+
+    sections.forEach(section => {
+      section.style.display = (section.id === 'hero' || section.id === 'header') ? 'block' : 'none';
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        sections.forEach(section => {
+          section.style.display = (section.id === 'header' || section.id === targetId) ? 'block' : 'none';
+        });
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var typed = new Typed(".typing-animation", {
+      strings: ["Manuel Daligdig", "Web Developer", "Freelancer", "Software Engineer", "Network Field Engineer", "IT Technician"],
+      typeSpeed: 100,
+      backSpeed: 60,
+      loop: true
+    });
+  });
+</script>
 </html>
