@@ -363,20 +363,19 @@ void main() {
 `;
 
 const fragmentShaderSource = `
-precision highp float;
+precision mediump float;
 uniform float u_time;
 uniform vec2 u_resolution;
 
-float plot(vec2 st, float pct){
-  return smoothstep(pct-0.02, pct, st.y) - smoothstep(pct, pct+0.02, st.y);
-}
+float heartShape(vec2 uv) {
+  uv *= 1.5;
+  uv.y += 0.3;
 
-float heart(vec2 p) {
-  p.x *= 1.2;
-  float a = atan(p.x, p.y) / 3.1416;
-  float r = length(p);
-  float h = abs(a);
-  return pow(r - 0.3*(1.0 - sin(h*3.1416)), 0.5);
+  float x = uv.x;
+  float y = uv.y;
+
+  float a = x*x + y*y - 1.0;
+  return a*a*a - x*x*y*y*y;
 }
 
 void main() {
@@ -384,16 +383,14 @@ void main() {
   vec2 p = uv * 2.0 - 1.0;
   p.x *= u_resolution.x / u_resolution.y;
 
-  float d = heart(p);
-  float glow1 = 0.02 / abs(d - 0.1*sin(u_time));
-  float glow2 = 0.01 / abs(d - 0.1*cos(u_time * 1.5));
+  float d = heartShape(p);
 
-  vec3 col = vec3(0.0);
-  col += vec3(1.0, 0.1, 0.6) * glow1; // pink
-  col += vec3(0.1, 0.6, 1.0) * glow2; // blue
+  float glow = 0.003 / abs(d);
+  vec3 color = vec3(1.0, 0.2 + 0.5*sin(u_time), 0.8) * glow;
 
-  gl_FragColor = vec4(col, 1.0);
+  gl_FragColor = vec4(color, 1.0);
 }
+
 `;
 
 function createShader(gl, type, source) {
