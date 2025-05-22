@@ -1,0 +1,45 @@
+body {
+    object-fit: fill;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.text-neon {
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+.border-neon {
+    border: 2px solid #0ff;
+    box-shadow: 0 0 10px #0ff;
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card-body {
+    flex-grow: 1;
+    /* Pushes content to fill space evenly */
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #0ff;
+}
+
+section p {
+    color: #fff;
+}
+
+/* Make all team images the same size */
+.team-img {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+    border-bottom: 2px solid #00f0ff;
+}
