@@ -3,17 +3,18 @@
 
 <header class="bg-dark text-white text-center py-5">
   <div class="container">
-    <h1 class="display-4 fw-bold text-neon">TechWise IT Solutions</h1>
-    <p class="lead text-light mb-4">Empowering Lives Through Smart Technology</p>
+    <h1 id="char" class="display-4 fw-bold text-neon">TechWise IT Solutions</h1>
 
+    <p class="lead text-light mb-4">Empowering Lives Through Smart Technology</p>
     <!-- Responsive Navigation -->
     <div class="d-flex flex-wrap justify-content-center gap-2">
-      <a href="#home" class="btn btn-outline-light">Home</a>
-      <a href="#team" class="btn btn-outline-light">Team</a>
-      <a href="#services" class="btn btn-outline-light">Services</a>
-      <a href="#projects" class="btn btn-outline-light">Projects</a>
-      <a href="#contact" class="btn btn-outline-light">Contact</a>
-      <a href="#home" class="btn btn-outline-light">About Us</a>
+      <a href="#home" class="btn btn-outline-light nav-link" data-target="home">Home</a>
+      <a href="#team" class="btn btn-outline-light nav-link" data-target="team">Team</a>
+      <a href="#services" class="btn btn-outline-light nav-link" data-target="services">Services</a>
+      <a href="#projects" class="btn btn-outline-light nav-link" data-target="projects">Projects</a>
+      <a href="#contact" class="btn btn-outline-light nav-link" data-target="contact">Contact</a>
+      <a href="#home" class="btn btn-outline-light nav-link" data-target="home">About Us</a>
+
     </div>
   </div>
 
@@ -26,219 +27,250 @@
 
 
 
-<body>
-<h1 class="card-title text-white bg-dark text-center text-neon">Thank you for choosing wisely <i class="fa fa-arrow-down"></i></h1>
-<section id="home" class="py-5 bg-dark text-white">
-  <div class="container">
-    <div class="row justify-content-center g-1">
-      <div class=" col-lg-5 d-flex justify-content-center">
-        <div class="card bg-dark border-neon ">
-          <div class="card-body m-0">
-            <img src="./image/LOGO.png" class="card-img-top">
-            <div class="text-white text-center">
-              TechWise IT Solutions is a team of passionate developers and designers dedicated to creating smart, user-friendly tech solutions. From websites and mobile apps to intuitive UI/UX and IoT systems, we aim to empower lives through innovation and simplicity.
+<body class="bg-dark">
+  <h1 class="card-title text-white bg-dark text-center text-neon">Thank you for choosing wisely <i
+      class="fa fa-arrow-down"></i></h1>
+  <section id="home" class="py-5 bg-dark  text-white">
+    <div class="container">
+      <div class="row justify-content-center g-1">
+        <div class=" col-lg-5 d-flex justify-content-center">
+          <div class="card bg-dark border-neon ">
+            <div class="card-body m-0">
+              <img src="./image/LOGO.png" class="card-img-top">
+              <div class="text-white text-center">
+                TechWise IT Solutions is a team of passionate developers and designers dedicated to creating smart,
+                user-friendly tech solutions. From websites and mobile apps to intuitive UI/UX and IoT systems, we aim
+                to empower lives through innovation and simplicity.
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="team" class="py-5 bg-dark text-white">
-  <div class="container text-center">
-    <h2 class="text-center mb-5 text-neon">Meet the Team</h2>
-    <div class="row justify-content-center g-4">
+  <section id="team" class="py-5 bg-dark set-display text-white">
+    <div class="container text-center">
+      <h2 class="text-center mb-5 text-neon">Meet the Team</h2>
+      <div class="row justify-content-center g-4">
 
-      <!-- Team Member 1 -->
-      <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
-        <div class="card bg-dark border-neon h-100 w-100">
-          <img src="./image/John Earl.jpg" class="card-img-top team-img" alt="DELA CRUZ, JOHN EARL C.">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">DELA CRUZ, JOHN EARL C.</h5>
-            <p class="card-text">Team Leader – A passionate app developer and writer who believes in using tech to solve real-world problems.</p>
+        <!-- Team Member 1 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+          <div class="card bg-dark border-neon h-100 w-100">
+            <img src="./image/John Earl.jpg" class="card-img-top team-img" alt="DELA CRUZ, JOHN EARL C.">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">DELA CRUZ, JOHN EARL C.</h5>
+              <p class="card-text">Team Leader – A passionate app developer and writer who believes in using tech to
+                solve real-world problems.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Team Member 2 -->
-      <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
-        <div class="card bg-dark border-neon h-100 w-100">
-          <img src="./image/Lumojod Vanesa L..jpg" class="card-img-top team-img" alt="LUMOJOD VANESA L.">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">LUMOJOD VANESA L.</h5>
-            <p class="card-text">A creative UI/UX designer who loves building beautiful, user-friendly interfaces.</p>
+        <!-- Team Member 2 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+          <div class="card bg-dark border-neon h-100 w-100">
+            <img src="./image/Lumojod Vanesa L..jpg" class="card-img-top team-img" alt="LUMOJOD VANESA L.">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">LUMOJOD VANESA L.</h5>
+              <p class="card-text">A creative UI/UX designer who loves building beautiful, user-friendly interfaces.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Team Member 3 -->
-      <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
-        <div class="card bg-dark border-neon h-100 w-100">
-          <img src="./image/Baluca, Rhalp Lorence D..jpg" class="card-img-top team-img" alt="Jane Cruz">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">BALUCA, RHALP LORENCE D.</h5>
-            <p class="card-text">Short statement rules and positionch.</p>
+        <!-- Team Member 3 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+          <div class="card bg-dark border-neon h-100 w-100">
+            <img src="./image/Baluca, Rhalp Lorence D..jpg" class="card-img-top team-img" alt="Jane Cruz">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">BALUCA, RHALP LORENCE D.</h5>
+              <p class="card-text">Short statement rules and positionch.</p>
+            </div>
           </div>
         </div>
-      </div>
 
 
-      <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
-        <div class="card bg-dark border-neon h-100 w-100">
-          <img src="./image/Tabangan, Reniel M.png" class="card-img-top  team-img" alt="KYLA MAE">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">TABANGAN, RENIEL M.</h5>
-            <p class="card-text"> Short statement rules and position</p>
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+          <div class="card bg-dark border-neon h-100 w-100">
+            <img src="./image/Tabangan, Reniel M.png" class="card-img-top  team-img" alt="KYLA MAE">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">TABANGAN, RENIEL M.</h5>
+              <p class="card-text"> Short statement rules and position</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
-        <div class="card bg-dark border-neon h-100 w-100">
-          <img src="./image/abiguel.png" class="card-img-top  team-img" alt="KYLA MAE">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">DAGALEA, CRISTEL- LIE</h5>
-            <p class="card-text"> Short statement rules and position</p>
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+          <div class="card bg-dark border-neon h-100 w-100">
+            <img src="./image/abiguel.png" class="card-img-top  team-img" alt="KYLA MAE">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">DAGALEA, CRISTEL- LIE</h5>
+              <p class="card-text"> Short statement rules and position</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
-        <div class="card bg-dark border-neon h-100 w-100">
-          <img src="./image/antoque.png" class="card-img-top  team-img" alt="KYLA MAE">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">ANTIPUESTO, KYLA MAE S.</h5>
-            <p class="card-text"> Short statement rules and position</p>  
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+          <div class="card bg-dark border-neon h-100 w-100">
+            <img src="./image/antoque.png" class="card-img-top  team-img" alt="KYLA MAE">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">ANTIPUESTO, KYLA MAE S.</h5>
+              <p class="card-text"> Short statement rules and position</p>
+            </div>
           </div>
         </div>
-      </div>
 
 
-      <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
-        <div class="card bg-dark border-neon h-100 w-100">
-          <img src="./image/abiguel (2).png" class="card-img-top  team-img" alt="KYLA MAE">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">TURTAL, ABEGIEL A.</h5>
-            <p class="card-text"> Short statement rules and position</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="services" class="py-5 bg-dark text-white">
-  <div class="container text-center">
-    <h2 class="text-center mb-5 text-neon">Our Services</h2>
-    <div class="row g-4 justify-content-center">
-
-      <!-- Web Development -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card bg-dark border-neon h-100">
-          <img src="./image/web.png" class="card-img-top" alt="Web Development">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">Web Development</h5>
-            <p class="card-text">We build responsive, modern, and accessible websites tailored to your brand’s identity and goals.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile App Development -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card bg-dark border-neon h-90">
-          <img src="./image/mobileapps.png" class="card-img-top" alt="Mobile App Development">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">Mobile App Development</h5>
-            <p class="card-text">We design and develop user-centric mobile applications to enhance your reach and engagement.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- UI/UX Design -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card bg-dark border-neon h-100">
-          <img src="./image/IOT.png" class="card-img-top" alt="UI/UX Design">
-          <div class="card-body">
-            <h5 class="card-title text-white text-neon">IOT Development</h5>
-            <p class="card-text">We develop smart, connected devices and systems to automate and enhance everyday life.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-<section id="projects" class="py-5 bg-dark text-white">
-  <div class="container">
-    <div class="row justify-content-center g-1">
-      <div class=" col-lg-5 d-flex justify-content-center">
-        <div class="card bg-dark border-neon ">
-          <div class="card-body m-0">
-            <h1 class="card-title text-white text-center text-neon">Recently Project</h1>
-            <h3 class="card-title text-white text-center text-neon">Coming Soon!</h3>
-            <img src="./image/LOGO.png" class="card-img-top">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="contact" class="py-5 bg-dark text-white">
-  <div class="container">
-    <h2 class="text-center mb-4 text-neon">Contact Us</h2>
-    <p class="text-center mb-4">Have a project in mind or just want to say hello? We’d love to hear from you!</p>
-
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card bg-dark border-neon p-4">
-          <div class="card-body text-center">
-            <p><strong>Email:</strong> <a href="mailto:contact@techwise.com" class="text-neon">TechWise@techwise.com</a></p>
-            <p><strong>Phone:</strong> <span class="text-neon">+63 987 654 321</span></p>
-            <p><strong>Address:</strong> <span class="text-neon">Zamboanga Peninsula Region 9</span></p>
-
-            <div class="mt-4">
-              <a href="https://facebook.com/#" class="btn btn-outline-light me-2">Facebook</a>
-              <a href="https://twitter.com/#" class="btn btn-outline-light me-2">Twitter</a>
-              <a href="https://linkedin.com/#" class="btn btn-outline-light">LinkedIn</a>
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+          <div class="card bg-dark border-neon h-100 w-100">
+            <img src="./image/abiguel (2).png" class="card-img-top  team-img" alt="KYLA MAE">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">TURTAL, ABEGIEL A.</h5>
+              <p class="card-text"> Short statement rules and position</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+
+  <section id="services" class="py-5 set-display bg-dark text-white">
+    <div class="container text-center">
+      <h2 class="text-center mb-5 text-neon">Our Services</h2>
+      <div class="row g-4 justify-content-center">
+
+        <!-- Web Development -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark border-neon h-100">
+            <img src="./image/web.png" class="card-img-top" alt="Web Development">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">Web Development</h5>
+              <p class="card-text">We build responsive, modern, and accessible websites tailored to your brand’s
+                identity and goals.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile App Development -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark border-neon h-90">
+            <img src="./image/mobileapps.png" class="card-img-top" alt="Mobile App Development">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">Mobile App Development</h5>
+              <p class="card-text">We design and develop user-centric mobile applications to enhance your reach and
+                engagement.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- UI/UX Design -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card bg-dark border-neon h-100">
+            <img src="./image/IOT.png" class="card-img-top" alt="UI/UX Design">
+            <div class="card-body">
+              <h5 class="card-title text-white text-neon">IOT Development</h5>
+              <p class="card-text">We develop smart, connected devices and systems to automate and enhance everyday
+                life.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
 
-<a href="#" id="scrollToTopBtn" title="Back to top"
-   class="position-fixed bottom-0 end-0 m-4 text-info" 
-   style="display: none; z-index: 1000;">
-  <i class="bi bi-arrow-up fs-3 p-3 border border-neon rounded-circle bg-dark"></i>
-</a>
+  <section id="projects" class="py-5 set-display bg-dark text-white">
+    <div class="container">
+      <div class="row justify-content-center g-1">
+        <div class=" col-lg-5 d-flex justify-content-center">
+          <div class="card bg-dark border-neon ">
+            <div class="card-body m-0">
+              <h1 class="card-title text-white text-center text-neon">Recently Project</h1>
+              <h3 class="card-title text-white text-center text-neon">Coming Soon!</h3>
+              <img src="./image/LOGO.png" class="card-img-top">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact" class="py-5 bg-dark set-display text-white">
+    <div class="container">
+      <h2 class="text-center mb-4 text-neon">Contact Us</h2>
+      <p class="text-center mb-4">Have a project in mind or just want to say hello? We’d love to hear from you!</p>
+
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card bg-dark border-neon p-4">
+            <div class="card-body text-center">
+              <p><strong>Email:</strong> <a href="mailto:contact@techwise.com"
+                  class="text-neon">TechWise@techwise.com</a></p>
+              <p><strong>Phone:</strong> <span class="text-neon">+63 987 654 321</span></p>
+              <p><strong>Address:</strong> <span class="text-neon">Zamboanga Peninsula Region 9</span></p>
+
+              <div class="mt-4">
+                <a href="https://facebook.com/#" class="btn btn-outline-light me-2">Facebook</a>
+                <a href="https://twitter.com/#" class="btn btn-outline-light me-2">Twitter</a>
+                <a href="https://linkedin.com/#" class="btn btn-outline-light">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <a href="#" id="scrollToTopBtn" title="Back to top" class="position-fixed bottom-0 end-0 m-4 text-info"
+      style="display: none; z-index: 1000;">
+      <i class="bi bi-arrow-up fs-3 p-3 border border-neon rounded-circle bg-dark"></i>
+    </a>
 
 
 
 
-<section class="footer text-center text-white bg-dark p-2">
-  <p>Copyright @2025</p>
-</section>
+    <footer class="footer text-center text-white bg-dark p-2">
+      <p>Copyright @2025</p>
+    </footer>
 
-<script>
-  const scrollBtn = document.getElementById("scrollToTopBtn");
+    <script>
+      const scrollBtn = document.getElementById("scrollToTopBtn");
 
-  window.addEventListener("scroll", () => {
-    scrollBtn.style.display = window.scrollY > 100 ? "block" : "none";
-  });
+      window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 100 ? "block" : "none";
+      });
 
-  scrollBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-</script>
+      scrollBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("data-target");
+
+          sections.forEach(section => {
+            if (section.id === targetId) {
+              section.classList.remove("set-display");
+            } else {
+              section.classList.add("set-display");
+            }
+          });
+
+          const targetSection = document.getElementById(targetId);
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
 
 </body>
 
