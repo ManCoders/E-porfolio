@@ -199,25 +199,28 @@
     <div class="hidden-msg" id="typed-msg"></div>
     <button id="restart-btn">🔄 Restart Surprise</button>
     <!-- Heart React Button -->
-<div style="margin-top: 20px;">
-  <button id="heart-react-btn" style="
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    background: #ff80ab;
-    border: none;
-    border-radius: 12px;
-    padding: 10px 20px;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-    transition: background 0.3s, transform 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-  ">
-    ❤️ React <span id="heart-count">0</span>
-  </button>
-</div>
+    <div style="margin-top: 20px">
+      <button
+        id="heart-react-btn"
+        style="
+          font-family: 'Dancing Script', cursive;
+          font-size: 2rem;
+          background: #ff80ab;
+          border: none;
+          border-radius: 12px;
+          padding: 10px 20px;
+          color: white;
+          cursor: pointer;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+          transition: background 0.3s, transform 0.2s;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+        "
+      >
+        ❤️ React <span id="heart-count">0</span>
+      </button>
+    </div>
     <div class="hearts" id="hearts"></div>
 
     <!-- Hidden YouTube background music -->
@@ -228,23 +231,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-      // Heart React Button Logic
-      const heartReactBtn = document.getElementById("heart-react-btn");
-      const heartCountSpan = document.getElementById("heart-count");
-      // Load count from localStorage or start at 0
-      let heartCount = parseInt(localStorage.getItem("heartReactCount")) || 0;
-      heartCountSpan.textContent = heartCount;
-      // On click, increment count, update display and save to localStorage
-      heartReactBtn.addEventListener("click", () => {
-        heartCount++;
-        heartCountSpan.textContent = heartCount;
-        localStorage.setItem("heartReactCount", heartCount);
-        // Optional: small scale animation on click
-        heartReactBtn.style.transform = "scale(1.2)";
-        setTimeout(() => {
-          heartReactBtn.style.transform = "scale(1)";
-        }, 150);
-      });
+      
 
       /*************** Floating Hearts ***************/
       const heartsContainer = document.getElementById("hearts");
@@ -361,6 +348,25 @@ Forever and always,
           player.mute();
         }
         started = false;
+      });
+
+
+      // Heart React Button Logic
+      const heartReactBtn = document.getElementById("heart-react-btn");
+      const heartCountSpan = document.getElementById("heart-count");
+      // Load count from localStorage or start at 0
+      let heartCount = parseInt(localStorage.getItem("heartReactCount")) || 0;
+      heartCountSpan.textContent = heartCount;
+      // On click, increment count, update display and save to localStorage
+      heartReactBtn.addEventListener("click", () => {
+        heartCount++;
+        heartCountSpan.textContent = heartCount;
+        localStorage.setItem("heartReactCount", heartCount);
+        // Optional: small scale animation on click
+        heartReactBtn.style.transform = "scale(1.2)";
+        setTimeout(() => {
+          heartReactBtn.style.transform = "scale(1)";
+        }, 150);
       });
     </script>
   </body>
